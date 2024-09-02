@@ -78,7 +78,7 @@ const AddNewDoctor = () => {
   };
 
   if (!isAuthenticated) {
-    return <Navigate to={"/login"} />;
+    return <Navigate to={"/"} />;
   }
   return (
     <section className="page">

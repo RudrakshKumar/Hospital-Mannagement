@@ -23,7 +23,7 @@ const Messages = () => {
   }, []);
 
   if (!isAuthenticated) {
-    return <Navigate to={"/login"} />;
+    return <Navigate to={"/"} />;
   }
 
   const handleDelete = async (e,messageId) => {
