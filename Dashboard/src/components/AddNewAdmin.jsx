@@ -32,7 +32,7 @@ const AddNewAdmin = () => {
         .then((res) => {
           toast.success(res.data.message);
           setIsAuthenticated(true);
-          navigateTo("/");
+          navigateTo("/dashboard");
           setFirstName("");
           setLastName("");
           setEmail("");
