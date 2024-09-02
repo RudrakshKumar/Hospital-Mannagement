@@ -63,7 +63,6 @@ const AddNewDoctor = () => {
         .then((res) => {
           toast.success(res.data.message);
           setIsAuthenticated(true);
-          navigateTo("/dashboard");
           setFirstName("");
           setLastName("");
           setEmail("");
