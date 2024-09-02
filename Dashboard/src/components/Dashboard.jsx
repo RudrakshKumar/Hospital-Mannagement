@@ -15,7 +15,7 @@ const Dashboard = () => {
     const fetchAppointments = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:5000/api/v1/appointment/getall",
+          `${import.meta.env.VITE_APP_HOST}/api/v1/appointment/getall`,
           { withCredentials: true }
         );
         setAppointments(data.appointments);
@@ -27,7 +27,7 @@ const Dashboard = () => {
     const fetchDoctors = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:5000/api/v1/user/doctors",
+          `${import.meta.env.VITE_APP_HOST}/api/v1/user/doctors`,
           { withCredentials: true }
         );
         docLength = data.doctors.length;
@@ -44,7 +44,7 @@ const Dashboard = () => {
     if (status === 'Delete') {
       try {
         const { data } = await axios.delete(
-          `http://localhost:5000/api/v1/appointment/delete/${appointmentId}`,
+          `${import.meta.env.VITE_APP_HOST}/api/v1/appointment/delete/${appointmentId}`,
           { withCredentials: true }
         );
         setAppointments((prevAppointments) =>
@@ -61,7 +61,7 @@ const Dashboard = () => {
     else {
       try {
         const { data } = await axios.put(
-          `http://localhost:5000/api/v1/appointment/update/${appointmentId}`,
+          `${import.meta.env.VITE_APP_HOST}/api/v1/appointment/update/${appointmentId}`,
           { status },
           { withCredentials: true }
         );

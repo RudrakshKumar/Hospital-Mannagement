@@ -18,7 +18,7 @@ const Login = () => {
     try {
       await axios
         .post(
-          "http://localhost:5000/api/v1/user/login",
+          `${import.meta.env.VITE_APP_HOST}/api/v1/user/login`,
           { email, password, cpassword, role: "Admin" },
           {
             withCredentials: true,
@@ -28,7 +28,7 @@ const Login = () => {
         .then((res) => {
           toast.success(res.data.message);
           setIsAuthenticated(true);
-          navigateTo("/");
+          navigateTo("/dashboard");
           setEmail("");
           setPassword("");
           setcpassword("");

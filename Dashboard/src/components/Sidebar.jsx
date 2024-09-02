@@ -24,12 +24,13 @@ const Sidebar = () => {
 
   const handleConfirm = async () => {
     await axios
-      .get("http://localhost:5000/api/v1/user/admin/logout", {
+      .get(`${import.meta.env.VITE_APP_HOST}/api/v1/user/admin/logout`, {
         withCredentials: true,
       })
       .then((res) => {
         toast.success(res.data.message);
         setIsAuthenticated(false);
+        navigateTo("/");
       })
       .catch((err) => {
         toast.error(err.response.data.message);
@@ -44,7 +45,7 @@ const Sidebar = () => {
   const navigateTo = useNavigate();
 
   const gotoHomePage = () => {
-    navigateTo("/");
+    navigateTo("/dashboard");
     setShow(!show);
   };
   const gotoDoctorsPage = () => {
@@ -63,6 +64,7 @@ const Sidebar = () => {
     navigateTo("/admin/addnew");
     setShow(!show);
   };
+
 
   return (
     <>

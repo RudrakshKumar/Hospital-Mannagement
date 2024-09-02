@@ -11,7 +11,7 @@ const Messages = () => {
     const fetchMessages = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:5000/api/v1/message/getall",
+          `${import.meta.env.VITE_APP_HOST}/api/v1/message/getall`,
           { withCredentials: true }
         );
         setMessages(data.messages);
@@ -30,7 +30,7 @@ const Messages = () => {
     e.preventDefault();
     try {
       const { data } = await axios.delete(
-        `http://localhost:5000/api/v1/message/delete/${messageId}`,
+        `${import.meta.env.VITE_APP_HOST}/api/v1/message/delete/${messageId}`,
         { withCredentials: true }
       );
       setMessages((prevMessages) =>

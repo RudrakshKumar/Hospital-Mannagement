@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await axios.post(
-          "http://localhost:5000/api/v1/user/login",
+          `${import.meta.env.VITE_APP_HOST}/api/v1/user/login`,
           { email, password, cpassword, role: "Patient" },
           {
             withCredentials: true,

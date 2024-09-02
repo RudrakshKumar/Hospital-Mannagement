@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   const handleConfirm = async () => {
-    await axios.get("http://localhost:5000/api/v1/user/patient/logout", 
+    await axios.get(`${import.meta.env.VITE_APP_HOST}/api/v1/user/patient/logout`, 
       {
         withCredentials: true,
       })
