@@ -135,7 +135,7 @@ export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
 export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
   res
     .status(200)
-    .cookie("patientToken", null, {
+    .cookie("adminToken", null, {
       httpOnly: true,
       expires: new Date(Date.now()),
       secure: process.env.NODE_ENV === 'production',
