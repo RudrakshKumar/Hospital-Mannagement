@@ -144,6 +144,7 @@ export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
     .json({
       success: true,
       message: "Admin Logged Out Successfully.",
+      adminToken
     });
 });
 
