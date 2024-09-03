@@ -136,8 +136,8 @@ export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
   res.cookie("adminToken", null, {
       httpOnly: true,
       expires: new Date(Date.now()),
-      // secure: process.env.NODE_ENV === 'production',
-      // sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax'
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax'
     })
     res.status(200).json({
       success: true,
