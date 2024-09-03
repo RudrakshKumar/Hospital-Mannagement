@@ -9,7 +9,8 @@ export const generateToken = (user, message, statusCode, res) => {
             ),
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax'
+            sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+            path: '/'
         })
         .json({
             success: true,
