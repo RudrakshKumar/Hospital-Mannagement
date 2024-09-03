@@ -133,15 +133,13 @@ export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
 // Logout function for dashboard admin
 
 export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
-  res
-    .status(200)
-    .cookie("adminToken", null, {
+  res.cookie("adminToken", null, {
       httpOnly: true,
       expires: new Date(Date.now()),
       // secure: process.env.NODE_ENV === 'production',
       // sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax'
     })
-    .json({
+    res.status(200).json({
       success: true,
       message: "Admin Logged Out Successfully.",
     });
