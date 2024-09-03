@@ -30,7 +30,6 @@ const Sidebar = () => {
       .then((res) => {
         toast.success(res.data.message);
         setIsAuthenticated(false);
-        setAdmin({})
         console.log("on sidebar",isAuthenticated)
         navigateTo("/");
       })
