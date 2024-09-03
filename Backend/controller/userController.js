@@ -135,8 +135,9 @@ export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
 export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
   res
     .status(200)
-    res.clearCookie("adminToken", {
+    .cookie("patientToken", null, {
       httpOnly: true,
+      expires: new Date(Date.now()),
       secure: process.env.NODE_ENV === 'production',
       sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax'
     })
@@ -151,7 +152,7 @@ export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
 export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
   res
     .status(200)
-    .cookie("patientToken", "", {
+    .cookie("patientToken", null, {
       httpOnly: true,
       expires: new Date(Date.now()),
       secure: process.env.NODE_ENV === 'production',
