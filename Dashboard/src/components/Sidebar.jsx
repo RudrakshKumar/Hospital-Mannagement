@@ -16,7 +16,7 @@ const Sidebar = () => {
   const [show, setShow] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const { isAuthenticated, setIsAuthenticated } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated,setAdmin } = useContext(Context);
 
   const handleLogout = () => {
     setIsDialogOpen(true);
@@ -30,6 +30,7 @@ const Sidebar = () => {
       .then((res) => {
         toast.success(res.data.message);
         setIsAuthenticated(false);
+        setAdmin({})
         console.log("on sidebar",isAuthenticated)
         navigateTo("/");
       })
