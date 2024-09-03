@@ -39,6 +39,7 @@ const Login = () => {
   };
 
   if (isAuthenticated) {
+    console.log(isAuthenticated)
     return <Navigate to={"/dashboard"} />;
   }
 
