@@ -133,17 +133,19 @@ export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
 // Logout function for dashboard admin
 
 export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
-  res.cookie("adminToken", null, {
+  res.clearCookie("adminToken", {
       httpOnly: true,
-      expires: new Date(Date.now()),
       secure: process.env.NODE_ENV === 'production',
-      sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax'
-    })
-    res.status(200).json({
+      sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax',
+      path: '/', // Match the path where the cookie was set
+    });
+    
+  res.status(200).json({
       success: true,
       message: "Admin Logged Out Successfully.",
-    });
+  });
 });
+
 
 // Logout function for frontend patient
 
