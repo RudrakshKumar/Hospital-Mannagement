@@ -30,6 +30,7 @@ const Sidebar = () => {
       .then((res) => {
         toast.success(res.data.message);
         setIsAuthenticated(false);
+        console.log("on sidebar",isAuthenticated)
         navigateTo("/");
       })
       .catch((err) => {

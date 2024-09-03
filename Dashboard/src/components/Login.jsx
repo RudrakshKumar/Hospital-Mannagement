@@ -11,6 +11,8 @@ const Login = () => {
 
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
+  console.log("at top",isAuthenticated)
+
   const navigateTo = useNavigate();
 
   const handleLogin = async (e) => {
@@ -39,7 +41,7 @@ const Login = () => {
   };
 
   if (isAuthenticated) {
-    console.log(isAuthenticated)
+    console.log("at bottom",isAuthenticated)
     return <Navigate to={"/dashboard"} />;
   }
 
