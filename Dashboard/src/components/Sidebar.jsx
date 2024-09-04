@@ -28,8 +28,6 @@ const Sidebar = () => {
         withCredentials: true,
         headers: {
           'Cache-Control': 'no-cache', // Ensure the request isn't cached
-          'Content-Type': 'application/json', // Ensure proper content type
-          'Authorization': `Bearer ${document.cookie.replace(/(?:(?:^|.*;\s*)adminToken\s*\=\s*([^;]*).*$)|^.*$/, "$1")}` // Include token if needed for verification
         }
       })
       .then((res) => {
