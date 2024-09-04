@@ -27,7 +27,7 @@ const Sidebar = () => {
       .get(`${import.meta.env.VITE_APP_HOST}/api/v1/user/admin/logout`, {
         withCredentials: true,
         headers: {
-          'Cache-Control': 'no-cache', // Ensure the request isn't cached
+          'Cache-Control': 'no-cache'
         }
       })
       .then((res) => {

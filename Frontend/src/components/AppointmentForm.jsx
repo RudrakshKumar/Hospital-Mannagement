@@ -20,7 +20,7 @@ const AppointmentForm = () => {
     const departmentsArray = [
         "Select Department",
         "Orthopedics",
-        "Pediatric",
+        "Pediatrics",
         "Cardiology",
         "Neurology",
         "Oncology",
@@ -185,7 +185,7 @@ const AppointmentForm = () => {
                         rows="10"
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
-                        placeholder="Address"
+                        placeholder="Breif description of your medical problem."
                     />
                     <div
                         style={{

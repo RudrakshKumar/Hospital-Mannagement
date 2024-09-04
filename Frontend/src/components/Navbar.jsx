@@ -25,6 +25,9 @@ const Navbar = () => {
     await axios.get(`${import.meta.env.VITE_APP_HOST}/api/v1/user/patient/logout`, 
       {
         withCredentials: true,
+        headers: {
+          'Cache-Control': 'no-cache'
+        }
       })
       .then((res) => {
         toast.success(res.data.message);
