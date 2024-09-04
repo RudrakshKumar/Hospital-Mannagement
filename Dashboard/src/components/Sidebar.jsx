@@ -26,11 +26,16 @@ const Sidebar = () => {
     await axios
       .get(`${import.meta.env.VITE_APP_HOST}/api/v1/user/admin/logout`, {
         withCredentials: true,
+        headers: {
+          'Cache-Control': 'no-cache', // Ensure the request isn't cached
+          'Content-Type': 'application/json', // Ensure proper content type
+          'Authorization': `Bearer ${document.cookie.replace(/(?:(?:^|.*;\s*)adminToken\s*\=\s*([^;]*).*$)|^.*$/, "$1")}` // Include token if needed for verification
+        }
       })
       .then((res) => {
         toast.success(res.data.message);
         setIsAuthenticated(false);
-        console.log("on sidebar",isAuthenticated)
+        console.log("on sidebar", isAuthenticated);
         navigateTo("/");
       })
       .catch((err) => {
@@ -38,6 +43,7 @@ const Sidebar = () => {
       });
     setIsDialogOpen(false);
   };
+  
 
   const handleCancel = () => {
     setIsDialogOpen(false);
